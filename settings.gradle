@@ -1,0 +1,2 @@
+rootProject.name = 'MarioSlug'
+include 'desktop', 'android', 'core'

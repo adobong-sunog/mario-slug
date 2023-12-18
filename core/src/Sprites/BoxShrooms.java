@@ -1,0 +1,48 @@
+package Sprites;
+
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.CircleShape;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.oop.marioslug.MarioSlug;
+import com.oop.marioslug.Screens.PlayScreen;
+
+public class BoxShrooms extends Item {
+
+    public BoxShrooms(PlayScreen screen, float x, float y) {
+        super(screen, x, y);
+        setRegion(screen.getAtlas().findRegion("mushroom"), 0, 0, 16, 16);
+        velocity = new Vector2(0.7f,0);
+    }
+
+    @Override
+    public void defineItem() {
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.position.set(getX(), getY());
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        body = world.createBody(bodyDef);
+
+        FixtureDef fixtureDef = new FixtureDef();
+        CircleShape shape = new CircleShape();
+        shape.setRadius(6f / MarioSlug.PPM);
+        fixtureDef.filter.categoryBits = MarioSlug.ITEM_BIT;
+        fixtureDef.filter.maskBits = MarioSlug.MARIO_BIT | MarioSlug.OBJECT_BIT | MarioSlug.GROUND_BIT | MarioSlug.BUFFSHROOM_BIT | MarioSlug.BRICK_BIT;
+
+        fixtureDef.shape = shape;
+        body.createFixture(fixtureDef).setUserData(this);
+    }
+
+    @Override
+    public void use(Mario mario) {
+        destroy();
+        mario.grow();
+    }
+
+    @Override
+    public void update(float dt) {
+        super.update(dt);
+        setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2);
+        velocity.y = body.getLinearVelocity().y;
+        body.setLinearVelocity(velocity);
+    }
+}
