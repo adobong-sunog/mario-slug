@@ -45,7 +45,7 @@ Then open your preferred IDE and open the project in whichever directory you set
 ## Acknowledgements
 > This project would've been almost impossible to make without [Brent Aureli's](https://github.com/BrentAureli) tutorial
 
-[Brent Aureli's Mario tutorial](https://www.youtube.com/watch?v=a8MPxzkwBwo&list=PLZm85UZQLd2SXQzsF-a0-pPF6IWDDdrXt&index=1), although an outdated tutorial at the time, helped in providing the idea for the base layout of the game. It also provided a decent amount of information on how libGDX works. Big thanks once again to Brent Aureli for providing this tutorial.
+[Brent Aureli's Mario tutorial](https://www.youtube.com/watch?v=a8MPxzkwBwo&list=PLZm85UZQLd2SXQzsF-a0-pPF6IWDDdrXt&index=1), although a slightly outdated tutorial at the time, helped in providing the idea for the base layout of the game. It also provided a decent amount of information on how libGDX works. Big thanks once again to Brent Aureli for providing this tutorial.
 
 > Rest of the resources that have been a massive help in creating this project:
 - [libGDX](https://libgdx.com/) (along with its [documentation](https://libgdx.com/wiki/)), a Java game development framework for providing rapid prototyping and fast iterations.
